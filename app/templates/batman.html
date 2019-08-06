@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for film in films.Search %}
+<div>
+    <p>
+        <h2>{{ film.Title }} ({{ film.Year }})</h2>
+    </p>
+</div>
+{% endfor %}
+{% endblock %}

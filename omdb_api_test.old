@@ -1,0 +1,16 @@
+import requests
+
+omdb_api_key = "6c3df824"
+url = "http://www.omdbapi.com/"
+
+search_for = "Batman"
+
+req_url = url + "?s=" + search_for + "&apikey=" + omdb_api_key
+
+my_req = requests.get(req_url).json()
+#print(my_req.json())
+#print()
+#print(my_req.headers)
+
+for film in my_req["Search"]:
+    print(film["Title"], " - ", film["Year"], " - ", film["Poster"])
