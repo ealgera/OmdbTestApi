@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Zoek films</h1>
+<form action="" method="POST" novalidate>
+    <p>
+        {{ form.search_field.label }} <br>
+        {{ form.search_field(size=32) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}
