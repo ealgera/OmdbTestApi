@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, url_for
 from app import app  # De variabele...
 from app.forms import LoginForm, SearchForm
 import requests
@@ -11,12 +11,11 @@ def index():
 
 @app.route("/batman/<movie>")
 def batman_movies(movie):
-    #movie = "Batman"
     omdb_api_key = "6c3df824"
     url = "http://www.omdbapi.com/"
     search_for = movie
     req_url = url + "?s=" + search_for + "&apikey=" + omdb_api_key
-
+    #print(req_url)
     my_req = requests.get(req_url).json()
     return render_template("batman.html", title="Batman films", films=my_req)
 
@@ -28,4 +27,6 @@ def login():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     form = SearchForm()
+    if form.is_submitted():
+        return batman_movies(form.search_field.data)
     return render_template("search.html", title="Zoeken", form=form)
