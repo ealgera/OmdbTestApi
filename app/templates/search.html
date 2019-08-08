@@ -2,16 +2,13 @@
 
 {% block content %}
 <h1>Zoek films</h1>
-<form action="" method="POST" novalidate class="w3-container w3-indigo">
+<form action="" method="POST" novalidate class="w3-container w3-border w3-round-large">
     <p>
         {{ form.search_field.label }} <br>
         {{ form.search_field(size=32) }}
     </p>
     <p>
         {{ form.submit() }}
-    </p>
-    <p>
-        Er is gezocht naar: {{ form.search_field.data }}
     </p>
 </form>
 {% endblock %}

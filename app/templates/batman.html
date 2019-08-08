@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for film in films.Search %}
-<div>
-    <p>
-        <h2>{{ film.Title }} ({{ film.Year }})</h2>
-    </p>
+<div class="w3-container">
+    <ul class="w3-ul w3-card-4 w3-sand w3-hoverable" style="width:50%">
+        <h3 class="w3-container">Filmnaam</h3>
+        {% for film in films.Search %}
+        <li class="w3-padding-small w3-hover-pale-yellow">{{ film.Title }} ({{ film.Year }})</li>
+        {% endfor %}
+    </ul>
 </div>
-{% endfor %}
+
 {% endblock %}
