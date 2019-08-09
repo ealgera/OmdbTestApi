@@ -14,15 +14,15 @@
 
 <body>
     <div class="w3-container w3-teal">
-        <h1>Films</h1>
+        <h5>Header</h5>
     </div>
-    <div>Films: 
-        <a href="/index">Home</a>
-        <a href="/batman/batman">Batman</a>
-        <a href="/login">Login</a>
-        <a href="/search">Zoeken</a>
+    <div class="w3-bar w3-black">
+        <a href="/index" class="w3-bar-item w3-button">Home</a>
+        <a href="/batman/batman" class="w3-bar-item w3-button">Batman</a>
+        <a href="/login" class="w3-bar-item w3-button">Login</a>
+        <a href="/search" class="w3-bar-item w3-button">Zoeken</a>
     </div>
-    
+    <div class=w3-panel>Films:</div>
     <div class="w3-container w3-pale-yellow">
         {% block content %}
         {% endblock %}
