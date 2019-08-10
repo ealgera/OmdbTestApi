@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for
+from flask import render_template, request, url_for, flash
 from app import app  # De variabele...
 from app.forms import LoginForm, SearchForm
 import requests
@@ -27,6 +27,9 @@ def login():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     form = SearchForm()
-    if form.is_submitted():
-        return batman_movies(form.search_field.data)
+    if request.method == "POST":
+        if form.search_field.data.strip():
+            return batman_movies(form.search_field.data)
+        else:
+            flash(f"Vul een zoekterm in...") 
     return render_template("search.html", title="Zoeken", form=form)
