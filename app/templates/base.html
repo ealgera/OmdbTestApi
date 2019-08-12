@@ -22,6 +22,13 @@
         <a href="/login" class="w3-bar-item w3-button">Login</a>
         <a href="/search" class="w3-bar-item w3-button">Zoeken</a>
     </div>
+    <div class="w3-container w3-red">
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endwith %}
+    </div>
     <div class=w3-panel>Films:</div>
     <div class="w3-container w3-pale-yellow">
         {% block content %}
