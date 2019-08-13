@@ -27,9 +27,10 @@ def login():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     form = SearchForm()
-    if request.method == "POST":
-        if form.search_field.data.strip():
-            return batman_movies(form.search_field.data)
-        else:
-            flash(f"Vul een zoekterm in...") 
+    if form.validate_on_submit():
+        flash("Films gevonden...", category="info")
+        return batman_movies(form.search_field.data)
+    else:
+        flash("Je moet het zoekveld invullen...", category="danger")
+
     return render_template("search.html", title="Zoeken", form=form)

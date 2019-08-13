@@ -3,6 +3,7 @@
 {% block content %}
 <h1>Zoek films</h1>
 <form action="" method="POST" novalidate class="w3-container w3-border w3-round-large">
+    {{ form.hidden_tag() }}
     <p>
         {{ form.search_field.label }} <br>
         {{ form.search_field(size=32) }}
