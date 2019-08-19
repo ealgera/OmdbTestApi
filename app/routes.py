@@ -28,9 +28,10 @@ def login():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
-        flash("Films gevonden...", category="info")
+        #flash("Formulier is 'valid on submit'...", category="info")
         return batman_movies(form.search_field.data)
     else:
-        flash("Je moet het zoekveld invullen...", category="danger")
+        if request.method == "POST":
+            flash("Je moet het zoekveld invullen...", category="danger")
 
     return render_template("search.html", title="Zoeken", form=form)
