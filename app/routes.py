@@ -28,7 +28,6 @@ def login():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
-        #flash("Formulier is 'valid on submit'...", category="info")
         return batman_movies(form.search_field.data)
     else:
         if request.method == "POST":
